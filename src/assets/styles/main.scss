@@ -1,0 +1,59 @@
+@import '@/assets/fonts/fonts';
+@import '@/assets/styles/variables';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: $color-grey-70;
+  background-color: #1e1e1e;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .main {
+    flex: 1;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+}
+
+.text-primary {
+  color: $color-green-60;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1580px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.btn {
+  padding: 18px 30px;
+  background-color: $color-green-60;
+  color: $color-grey-11;
+  border-radius: 50px;
+  font-weight: 400;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 48px;
+  color: $color-white;
+  margin-bottom: 14px;
+}
