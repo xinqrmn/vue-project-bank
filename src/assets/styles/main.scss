@@ -31,11 +31,6 @@ body {
   }
 }
 
-.text-primary {
-  color: $color-green-60;
-}
-
-
 .container {
   width: 100%;
   max-width: 1580px;
@@ -56,4 +51,8 @@ body {
   font-size: 48px;
   color: $color-white;
   margin-bottom: 14px;
+}
+
+.text-primary {
+  color: $color-green-60;
 }

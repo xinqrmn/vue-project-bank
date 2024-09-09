@@ -9,7 +9,7 @@ const products = useProducts()
 
 <template>
   <div class="products-list">
-    <template v-if="products.status">
+    <template class="products-status" :class="{active: products.status}">
       <products-item title="Checking Accounts"
                      subtitle="Enjoy easy and convenient access to your funds with our range of checking account options. Benefit from features such as online and mobile banking, debit cards, and free ATM access.">
         <BriefcaseIcon/>
@@ -23,7 +23,7 @@ const products = useProducts()
         <BanknotesIcon/>
       </products-item>
     </template>
-    <template v-if="!products.status">
+    <template class="products-status" :class="{active: !products.status}">
       <products-item title="Business Accounts"
                      subtitle="Streamline your business finances with our specialized business accounts. Enjoy benefits like detailed transaction reports, business credit cards, and dedicated support to help your business thrive.">
         <BriefcaseIcon/>
@@ -44,18 +44,26 @@ const products = useProducts()
 @import '@/assets/styles/variables';
 
 .products-list {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.products-status {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */
-{
+  transition: all .3s ease-out;
   opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
 }
+
 </style>
