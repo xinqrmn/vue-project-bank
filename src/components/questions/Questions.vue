@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import QuestionsInner from "@/components/home/questions/QuestionsInner.vue";
+import QuestionsInner from "@/components/questions/QuestionsInner.vue";
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import QuestionsItem from "@/components/home/questions/QuestionsItem.vue";
+import QuestionsItem from "@/components/questions/QuestionsItem.vue";
 import {useQuestions} from "@/store/modules/questions";
 import {ChevronDownIcon} from "@heroicons/vue/24/solid";
 import {computed, ref} from "vue";
