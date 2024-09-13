@@ -5,6 +5,7 @@ import Cases from "@/components/home/cases/Cases.vue";
 import Features from "@/components/home/features/Features.vue";
 import Questions from "@/components/questions/Questions.vue";
 import Reviews from "@/components/reviews/Reviews.vue";
+import Promo from "@/components/Promo.vue";
 
 </script>
 
@@ -15,6 +16,7 @@ import Reviews from "@/components/reviews/Reviews.vue";
   <Features />
   <Questions />
   <Reviews />
+  <Promo />
 </template>
 
 <style scoped lang="scss">

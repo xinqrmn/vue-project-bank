@@ -4,17 +4,21 @@ import {Swiper, SwiperSlide} from "swiper/vue"
 import ReviewsIcon from "@/assets/img/reviews-logo.svg"
 import 'swiper/css';
 import 'swiper/css/navigation';
+import {Navigation, Keyboard} from "swiper/modules";
 
 const reviews = useReviews()
 </script>
 
 <template>
   <div class="reviews-bottom">
+    <div class="reviews-backdrop--left"></div>
     <swiper
         class="review-slider flex justify-between items-center"
+        :modules="[Navigation, Keyboard]"
         :slides-per-view="3"
         :space-between="120"
         navigation
+        :keyboard="{enabled: true, onlyInViewport: true}"
         loop
     >
       <swiper-slide
@@ -30,6 +34,7 @@ const reviews = useReviews()
         </div>
       </swiper-slide>
     </swiper>
+    <div class="reviews-backdrop--right"></div>
   </div>
 </template>
 
@@ -42,6 +47,26 @@ const reviews = useReviews()
 
 }
 
+.reviews-backdrop--right,
+.reviews-backdrop--left {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #191919;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.reviews-backdrop--right {
+  background: linear-gradient(270deg, #191919 30%, rgba(0,0,0,0) 80%);
+  right: -100px;
+}
+.reviews-backdrop--left {
+  background: linear-gradient(90deg, #191919 30%, rgba(0,0,0,0) 80%);
+  left: -100px;
+}
 .review-slider {
   padding: 0 120px;
   margin: 0 auto;
@@ -51,7 +76,10 @@ const reviews = useReviews()
 
   &.swiper {
     position: initial;
+
   }
+
+
 
   .swiper-wrapper {
     transition: transform .3s ease;
@@ -64,12 +92,16 @@ const reviews = useReviews()
 
   .swiper-button-next,
   .swiper-button-prev {
-    display: block;
-    width: 50px;
-    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
     border: 1px solid $color-grey-15;
     background-color: $color-grey-10;
     border-radius: 50%;
+    overflow: hidden;
+    z-index: 333;
   }
 
   .swiper-button-next::after,
@@ -88,7 +120,19 @@ const reviews = useReviews()
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: $color-green-60;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .swiper-button-next::before {
+    margin: auto;
+    background-image: url('@/assets/img/arrow-right-slider.svg');
+  }
+
+  .swiper-button-prev::before {
+    margin: auto;
+    background-image: url('@/assets/img/arrow-left-slider.svg');
   }
 }
 

@@ -4,7 +4,7 @@ import ReviewsSlider from "@/components/reviews/ReviewsSlider.vue"
 </script>
 
 <template>
-  <section class="reviews pt-36">
+  <section class="reviews pt-36 overflow-hidden mb-36">
     <div class="container">
       <reviews-top></reviews-top>
       <reviews-slider></reviews-slider>
