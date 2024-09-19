@@ -64,7 +64,6 @@ onMounted(() => {
 
 
 .transaction-block {
-  //padding: 20px;
   border-radius: 10px;
   width: 100%;
   margin-bottom: 185px;
