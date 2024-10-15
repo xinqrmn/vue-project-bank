@@ -4,9 +4,11 @@ import {useRoute} from "vue-router"
 import MainLayout from "@/layout/MainLayout.vue"
 import AuthLayout from "@/layout/AuthLayout.vue"
 
+type LayoutKey = 'main' | 'auth'
+
 const route = useRoute()
 
-const layout = computed(() => route.meta.layout)
+const layout = computed(() => route.meta.layout as LayoutKey | undefined)
 
 const layoutComponents = {
   main: MainLayout,

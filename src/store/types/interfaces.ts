@@ -41,3 +41,19 @@ export interface IReviews {
   author: string
   category: 'individuals' | 'businesses'
 }
+
+export interface IValues {
+  key: string
+  title: string
+  text: string
+}
+
+export interface IValuesProps {
+  title: string
+  text: string
+}
+
+export interface IBenefitsProps {
+  title: string
+  text: string
+}

@@ -2,27 +2,61 @@
 import QuestionsItem from "@/components/questions/QuestionsItem.vue";
 import {useQuestions} from "@/store/modules/questions";
 import {ChevronDownIcon} from "@heroicons/vue/24/solid";
-import {computed, ref} from "vue";
+import {computed, nextTick, onMounted, ref} from "vue";
 
 const questions = useQuestions()
-const isExpanded = ref(false)
+const isExpanded = ref<boolean>(false)
+const containerHeight = ref<string>('0px')
+const fourItemsHeight = ref(0)
+
+onMounted( async () => {
+  await nextTick();
+  setContainerHeight();
+})
 
 const visibleQuestions = computed(() => isExpanded.value ? questions.data : questions.data.slice(0, 4))
 
-const toggleExpanded = () => {
-  isExpanded.value = !isExpanded.value
+const setContainerHeight = () => {
+  const container = document.querySelector('.questions-inner')
+
+  if (container) {
+    if (isExpanded.value) {
+      container.style.maxHeight = 'none'
+      containerHeight.value = `${container.scrollHeight}px`
+
+      setTimeout(() => containerHeight.value = 'auto', 600)
+    } else {
+      const questionItems = container.querySelectorAll('.questions-item')
+      if (questionItems.length > 0) {
+        fourItemsHeight.value = Array.from(questionItems)
+            .slice(0, 4)
+            .reduce((totalHeight, item) => totalHeight + (item as HTMLElement).offsetHeight, 0)
+        containerHeight.value = `${fourItemsHeight.value}px`
+      }
+    }
+  }
 }
+
+const toggleExpanded = async () => {
+  isExpanded.value = !isExpanded.value
+  await nextTick()
+  setContainerHeight()
+}
+
 </script>
 
 <template>
-<div class="questions-inner">
-  <questions-item
-    v-for="question in visibleQuestions"
-    :key="question.key"
-    :content="question"
-  ></questions-item>
-  <div v-if="!isExpanded" class="question-shadow"></div>
-</div>
+  <div
+      class="questions-inner"
+      :style="{maxHeight: containerHeight}"
+  >
+    <questions-item
+        v-for="question in visibleQuestions"
+        :key="question.key"
+        :content="question"
+    ></questions-item>
+    <div v-if="!isExpanded" class="question-shadow"></div>
+  </div>
   <button :class="['expand-btn', {active: isExpanded}]" @click="toggleExpanded">
     {{ isExpanded ? 'Show Less ' : 'Load All FAQs' }}
     <ChevronDownIcon class="size-7"/>
@@ -38,6 +72,8 @@ const toggleExpanded = () => {
   grid-gap: 30px;
   position: relative;
   margin-bottom: 20px;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
 
   .question-shadow {
     position: absolute;
@@ -45,9 +81,9 @@ const toggleExpanded = () => {
     left: 0;
     right: 0;
     width: 100%;
-    height: 50%;
+    height: 50px;
     background: #191919;
-    background: linear-gradient(0deg, #191919 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(0deg, #191919 0%, rgba(0, 0, 0, 0) 100%);
   }
 }
 

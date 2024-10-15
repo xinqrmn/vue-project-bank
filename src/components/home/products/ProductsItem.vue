@@ -17,8 +17,8 @@ const props = defineProps<IProps>()
       </span>
     </div>
     <div class="products-text">
-    <h4>{{ props.title }}</h4>
-    <p>{{ props.subtitle }}</p>
+      <h4>{{ props.title }}</h4>
+      <p>{{ props.subtitle }}</p>
     </div>
   </div>
 </template>
@@ -53,8 +53,8 @@ const props = defineProps<IProps>()
 }
 
 .products-icon {
-  background: rgb(202,255,51);
-  background: linear-gradient(180deg, rgba(202,255,51, .05) 0%, rgba(202,255,51,0) 90%);
+  background: rgb(202, 255, 51);
+  background: linear-gradient(180deg, rgba(202, 255, 51, .05) 0%, rgba(202, 255, 51, 0) 90%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,8 +72,8 @@ const props = defineProps<IProps>()
     width: 75px;
     height: 75px;
     color: $color-green-60;
-    background: rgb(202,255,51);
-    background: linear-gradient(180deg, rgba(202,255,51, .1) 0%, rgba(202,255,51,0) 80%);
+    background: rgb(202, 255, 51);
+    background: linear-gradient(180deg, rgba(202, 255, 51, .1) 0%, rgba(202, 255, 51, 0) 80%);
   }
 }
 
