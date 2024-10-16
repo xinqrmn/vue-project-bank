@@ -4,6 +4,7 @@ import Header from "@/components/careers/Header.vue";
 import Promo from "@/components/Promo.vue";
 import Values from "@/components/careers/values/Values.vue";
 import Benefits from "@/components/careers/benefits/Benefits.vue";
+import Resumes from "@/components/careers/resumes/Resumes.vue";
 
 </script>
 
@@ -11,6 +12,7 @@ import Benefits from "@/components/careers/benefits/Benefits.vue";
   <Header/>
   <Values/>
   <Benefits />
+  <Resumes />
   <Questions/>
   <Promo/>
 </template>

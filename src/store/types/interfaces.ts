@@ -57,3 +57,25 @@ export interface IBenefitsProps {
   title: string
   text: string
 }
+
+export interface IResumes {
+  key: string
+  location: string
+  department: string
+  title: string
+  about: string
+  requirement: IRequirement[]
+}
+
+interface IRequirement {
+  key: string
+  name: string
+}
+
+export interface IResumesProps {
+  location: string
+  department: string
+  title: string
+  about: string
+  requirement: IRequirement[]
+}
