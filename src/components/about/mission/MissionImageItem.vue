@@ -19,7 +19,7 @@ interface IMissionImageItemProps {
 @import "@/assets/styles/variables";
 
 .mission-image-item {
-  width: 50%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;

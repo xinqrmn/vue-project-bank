@@ -79,3 +79,20 @@ export interface IResumesProps {
   about: string
   requirement: IRequirement[]
 }
+
+export interface IRelease {
+  key: string
+  imagePath: string
+  title: string
+  location: string
+  date: string
+  text: string
+}
+
+export interface IReleaseProps {
+  imagePath: string
+  title: string
+  location: string
+  date: string
+  text: string
+}
