@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import RoundedIcon from "@/components/RoundedIcon.vue";
+
 interface IProps {
   title: string
   subtitle: string
@@ -11,11 +13,9 @@ const props = defineProps<IProps>()
 
 <template>
   <div class="products-item flex flex-col justify-between items-center">
-    <div class="products-icon">
-      <span>
-        <slot></slot>
-      </span>
-    </div>
+    <RoundedIcon>
+      <slot></slot>
+    </RoundedIcon>
     <div class="products-text">
       <h4>{{ props.title }}</h4>
       <p>{{ props.subtitle }}</p>

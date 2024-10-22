@@ -4,7 +4,7 @@ import FeaturesTabs from "@/components/home/features/FeaturesTabs.vue";
 </script>
 
 <template>
-  <section class="features pt-36">
+  <section class="features mb-36">
     <div class="container">
       <h3 class="title">Our <span class="text-primary">Features</span></h3>
       <p class="mb-20 w-3/4">Experience a host of powerful features at YourBank, including seamless online banking, secure

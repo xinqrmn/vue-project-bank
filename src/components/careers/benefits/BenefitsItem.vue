@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {IBenefitsProps} from "@/store/types/interfaces";
+import RoundedIcon from "@/components/RoundedIcon.vue";
 
 const props = defineProps<IBenefitsProps>()
 </script>
@@ -7,11 +8,9 @@ const props = defineProps<IBenefitsProps>()
 <template>
   <div class="benefits-item">
     <div class="benefits-title">
-      <div class="benefits-icon">
-        <span>
-          <slot></slot>
-        </span>
-      </div>
+      <RoundedIcon>
+        <slot></slot>
+      </RoundedIcon>
       <h4>{{ props.title }}</h4>
     </div>
     <p class="benefits-text">{{ props.text }}</p>

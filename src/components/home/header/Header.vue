@@ -10,7 +10,7 @@ import HomeCurrency from "@/components/home/header/HeaderCurrency.vue";
 <template>
   <header class="header pt-24 overflow-hidden">
     <div class="container">
-      <div class="header-wrapper flex justify-between items-start">
+      <div class="header-wrapper mb-36 flex justify-between items-start">
         <div class="header-info w-1/2">
           <p class="requirements inline-block px-4 py-2.5 mb-5">
             <CheckBadgeIcon class="inline size-6 text-primary mr-1"/>
