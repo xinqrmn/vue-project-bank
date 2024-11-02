@@ -8,24 +8,24 @@ import {ArrowsRightLeftIcon} from '@heroicons/vue/24/solid'
   <h3>Supported Currency</h3>
   <ul class="currency flex items-center">
     <li>
-      <router-link class="currency-item" to="/">
+      <a class="currency-item" href="https://coinmarketcap.com/currencies/tether/" target="_blank">
         <img src="../../../assets/img/dollar-logo.svg" alt="dollar-logo">
-      </router-link>
+      </a>
     </li>
     <li>
-      <router-link class="currency-item" to="/">
+      <a class="currency-item" href="https://coinmarketcap.com/currencies/euro-coin/" target="_blank">
         <img src="../../../assets/img/euro-logo.svg" alt="euro-logo">
-      </router-link>
+      </a>
     </li>
     <li>
-      <router-link class="currency-item" to="/">
+      <a class="currency-item" href="https://coinmarketcap.com/currencies/bitcoin/" target="_blank">
         <img src="../../../assets/img/bitcoin-logo.svg" alt="bitcoin-logo">
-      </router-link>
+      </a>
     </li>
     <li>
-      <router-link class="currency-item" to="/">
+      <a class="currency-item" href="https://coinmarketcap.com/currencies/ethereum/" target="_blank">
         <img src="../../../assets/img/ethereum-logo.svg" alt="ethereum-logo">
-      </router-link>
+      </a>
     </li>
   </ul>
 </div>
