@@ -138,7 +138,7 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
   }
 
   &__header {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 
   &__wrapper {
@@ -152,7 +152,7 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 20px;
     margin-bottom: 40px;
 
     input {
@@ -181,7 +181,7 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
     text-decoration: none;
     border-bottom: 1px solid $color-white;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   &__button {
@@ -193,13 +193,14 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
     color: #fff;
 
     &--primary {
-      background-color: #D3FF39;
-      color: #000;
+      background-color: $color-green-60;
+      color: $color-black;
       margin-top: 10px;
     }
 
     &--secondary {
-      background-color: #333;
+      background-color: $color-grey-15;
+      border: 1px solid $color-grey-20;
       margin-top: 10px;
     }
   }
