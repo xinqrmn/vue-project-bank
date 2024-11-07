@@ -8,6 +8,7 @@ import flagIndia from '@/assets/img/flags/flag-of-india.png'
 import flagEuro from '@/assets/img/flags/flag-of-euro.jpg'
 import flagBritish from '@/assets/img/flags/flag-of-british.png'
 import flagTurkish from '@/assets/img/flags/flag-of-turkish.png'
+import {transactions} from "@/store/data/transactionsData";
 
 const API_KEY = process.env.VUE_APP_EXCHANGE_KEY
 
@@ -42,6 +43,13 @@ export const useCurrency = defineStore('currency', () => {
       const response = await axios.get(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${currencyFrom.value}/${currencyTo.value}/${amountFrom.value}`)
       console.log(response.data.conversion_result)
       exchangeRes.value = response.data.conversion_result
+      transactions.value.push({
+        id: Date.now().toLocaleString(),
+        name: 'Test',
+        amount: Number(exchangeRes.value.toFixed(2)),
+        type: 'income'
+      })
+      console.log(transactions.value)
     } catch (e) {
       console.error('Ошибка при получении курса обмена: ', e)
     }

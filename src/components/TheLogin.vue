@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import RoundedIcon from "@/components/RoundedIcon.vue";
 import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
+import {useAuth} from "@/store/modules/auth";
+
+const authStore = useAuth()
+
 </script>
 
 <template>
@@ -13,15 +17,19 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
         <p>Welcome back! Please log in to access your account.</p>
       </div>
       <div class="login__wrapper">
-        <form class="login__form" @submit.prevent="onSubmit">
+        <form class="login__form" @submit.prevent="authStore.submitForm">
           <div class="login__inputs-box">
-            <input type="email" placeholder="Enter your Email" class="login__input" required/>
-            <input type="password" placeholder="Enter your Password" class="login__input" required/>
+            <input type="email" v-model="authStore.email" placeholder="Enter your Email" class="login__input" required/>
+            <span v-if="authStore.errors.email">{{ authStore.errors.email }}asdasd</span>
+            <input type="password" v-model="authStore.password" placeholder="Enter your Password" class="login__input" required/>
+            <span v-if="authStore.errors.password">{{ authStore.errors.password }}asdasd</span>
           </div>
           <div class="login__buttons-box">
             <a href="#" class="login__forgot">Forgot Password?</a>
             <button type="submit" class="login__button login__button--primary">Login</button>
-            <button type="button" class="login__button login__button--secondary">Sign Up</button>
+            <button type="button" @click="$emit('switch-to-register')" class="login__button login__button--secondary">
+              Sign Up
+            </button>
           </div>
         </form>
         <div class="login__social">
@@ -93,168 +101,6 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/variables";
-
-.login {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-  border: 1px solid $color-grey-15;
-  min-height: 80vh;
-  background-image: url("@/assets/img/auth-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 25px;
-  padding: 100px 150px;
-  overflow: hidden;
-  text-align: center;
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 1;
-  }
-
-  &__decor {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 290px;
-    height: 290px;
-    z-index: 23;
-  }
-
-  &__container {
-    position: relative;
-    z-index: 22;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__header {
-    margin-bottom: 50px;
-  }
-
-  &__wrapper {
-    width: 100%;
-    z-index: 25;
-    text-align: center;
-  }
-
-  &__inputs-box {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 40px;
-
-    input {
-      width: 50%;
-      border-radius: 55px;
-      background-color: $color-grey-10;
-      border: 1px solid $color-grey-15;
-      color: $color-grey-35 ;
-      padding: 20px;
-    }
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 25px;
-  }
-
-
-  &__forgot {
-    width: max-content;
-    display: block;
-    color: $color-white;
-    font-weight: 400;
-    text-decoration: none;
-    border-bottom: 1px solid $color-white;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  &__button {
-    padding: 15px;
-    font-size: 1rem;
-    border-radius: 55px;
-    cursor: pointer;
-    border: none;
-    color: #fff;
-
-    &--primary {
-      background-color: $color-green-60;
-      color: $color-black;
-      margin-top: 10px;
-    }
-
-    &--secondary {
-      background-color: $color-grey-15;
-      border: 1px solid $color-grey-20;
-      margin-top: 10px;
-    }
-  }
-
-  &__buttons-box {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    align-items: center;
-
-    button {
-      width: 100%;
-    }
-  }
-
-  &__alternative {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 25px;
-  }
-
-  &__social {
-    width: 49%;
-    margin: 0 auto;
-
-    .line {
-      width: 40%;
-      flex: 1;
-      height: 1px;
-      background-color: #b5b5b5;
-    }
-  }
-
-  &__icons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 10px;
-
-    .login__icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #D3FF39;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  }
-}
+//@import "@/assets/styles/variables";
+//@import "@/assets/styles/auth";
 </style>

@@ -6,18 +6,25 @@ import {useAuth} from "@/store/modules/auth";
 
 const auth = useAuth()
 
+const switchToLogin = () => {
+  auth.setMode('login')
+}
+const switchToRegister = () => {
+  auth.setMode('register')
+}
 </script>
 
 <template>
-  <template v-if="auth.type === 'register'">
-    <TheRegister/>
+  <template v-if="auth.mode === 'register'">
+    <TheRegister @switch-to-login="switchToLogin"/>
   </template>
-  <template v-else-if="auth.type === 'login'">
-    <TheLogin/>
+  <template v-else-if="auth.mode === 'login'">
+    <TheLogin @switch-to-register="switchToRegister"/>
   </template>
   <Reviews/>
 </template>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+@import "@/assets/styles/variables";
+@import "@/assets/styles/auth";
 </style>

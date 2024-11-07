@@ -100,7 +100,7 @@ const selectCurrencyTo = (currency: ICurrencies) => {
         <input class="currency-amount" type="number" v-model="amountTo" placeholder="amountTo" disabled/>
       </div>
     </div>
-    <button class="exchange-button" @click="currencyStore.fetchExchangeRate()">Exchange</button>
+    <button class="exchange-button" @click="currencyStore.fetchExchangeRate(amountTo)">Exchange</button>
   </div>
 </template>
 

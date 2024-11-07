@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useTransactions} from "@/store/modules/transactions";
-import {onMounted, ref} from "vue"
+import {onMounted, ref, watch} from "vue"
 import {ArrowsRightLeftIcon} from '@heroicons/vue/24/solid'
 
 export interface Transaction {
@@ -30,6 +30,13 @@ onMounted(() => {
   transactionsList.value = lastTransaction
 })
 
+watch(
+    () => transactionsStore.lastThreeTransactions,
+    (newTransactions) => {
+      transactionsList.value = newTransactions;
+    }
+);
+
 </script>
 
 <template>
@@ -44,7 +51,7 @@ onMounted(() => {
       >
         <div class="icon-wrapper">
           <div class="transaction-icon">
-            <ArrowsRightLeftIcon class="inline size-6 text-black text-center" />
+            <ArrowsRightLeftIcon class="inline size-6 text-black text-center"/>
           </div>
         </div>
         <div class="transaction-details">

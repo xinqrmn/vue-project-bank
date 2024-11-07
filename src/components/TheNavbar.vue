@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+import {useAuth} from "@/store/modules/auth";
+
+const auth = useAuth()
+
 </script>
 
 <template>
@@ -23,8 +27,8 @@
         </li>
       </ul>
       <div class="auth__links flex items-center justify-center gap-1">
-        <router-link to="/auth">Sign Up</router-link>
-        <router-link to="/auth" class="primary">Login</router-link>
+        <router-link to="/auth" @click="auth.setMode('register')" :class="auth.mode === 'register' ? 'primary' : ''">Sign Up</router-link>
+        <router-link to="/auth" @click="auth.setMode('login')" :class="auth.mode === 'login' ? 'primary' : ''">Login</router-link>
       </div>
     </nav>
   </div>
