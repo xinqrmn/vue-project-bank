@@ -2,9 +2,20 @@
 import RoundedIcon from "@/components/RoundedIcon.vue";
 import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
 import {useAuth} from "@/store/modules/auth";
+import router from "@/router";
+import {createUserWithEmailAndPassword} from "@firebase/auth";
+import {auth} from "@/firebase";
 
 const authStore = useAuth()
 
+const onSubmit = async (email: string, password: string) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+    console.log('User registered:', userCredential.user);
+  } catch (e) {
+    console.error('Error registering user:', e);
+  }
+}
 </script>
 
 <template>
@@ -17,7 +28,7 @@ const authStore = useAuth()
         <p>Join our community today! Create an account to unlock exclusive features and personalized experiences.</p>
       </div>
       <div class="login__wrapper">
-        <form class="login__form" @submit.prevent="onSubmit">
+        <form class="login__form" @submit.prevent="onSubmit(authStore.email, authStore.password)">
           <div class="login__inputs-inner" :style="[{marginBottom: '10px'}]">
             <div class="login__inputs-box">
               <input type="text" placeholder="Enter first name" class="login__input" v-model="authStore.firstName"/>
@@ -34,12 +45,15 @@ const authStore = useAuth()
               <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
             </div>
             <div class="login__inputs-box">
-              <input type="password" placeholder="Enter your Password" class="login__input" v-model="authStore.password"/>
+              <input type="password" placeholder="Enter your Password" class="login__input"
+                     v-model="authStore.password"/>
               <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
             </div>
           </div>
           <div class="login__buttons-box">
-            <button type="submit" class="login__button login__button--primary" @click.prevent="authStore.registerHandler">Sign Up</button>
+            <button type="submit" class="login__button login__button--primary"
+                    @click.prevent="authStore.registerHandler">Sign Up
+            </button>
             <button type="button" @click="$emit('switch-to-login')" class="login__button login__button--secondary">
               Login
             </button>

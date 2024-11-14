@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import RoundedIcon from "@/components/RoundedIcon.vue";
 import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
+import {getAuth, createUserWithEmailAndPassword} from "@firebase/auth";
 import {useAuth} from "@/store/modules/auth";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import router from "@/router";
 
-const authStore = useAuth()
+const authStore = useAuth();
 
-const onSubmit = authStore.onSubmit
+const auth = getAuth()
+
+const onSubmit = async () => {
+
+}
 
 </script>
 
@@ -20,17 +26,17 @@ const onSubmit = authStore.onSubmit
         <p>Welcome back! Please log in to access your account.</p>
       </div>
       <div class="login__wrapper">
-        <form class="login__form" @submit.prevent="onSubmit()">
+        <form class="login__form" @submit.prevent="onSubmit">
           <div class="login__inputs-inner">
             <div class="login__inputs-box">
               <input type="email" v-model="authStore.email" placeholder="Enter your Email" class="login__input"
                      required autocomplete="current-password"/>
-              <ErrorMessage :error="authStore.errors.email">asd</ErrorMessage>
+              <ErrorMessage :error="authStore.errors.email"></ErrorMessage>
             </div>
             <div class="login__inputs-box">
               <input type="password" v-model="authStore.password" placeholder="Enter your Password" class="login__input"
                      required/>
-              <ErrorMessage :error="authStore.errors.password">asd</ErrorMessage>
+              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
             </div>
           </div>
           <div class="login__buttons-box">

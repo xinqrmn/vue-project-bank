@@ -20,15 +20,15 @@ export const useAuth = defineStore('auth', () => {
     console.log('Form Submitted', values);
   })
 
-  const onSubmit = handleSubmit(async () => {
-    try {
-      console.log('Form Submitted', password.value, email.value);
-      password.value = ''
-      email.value = ''
-    } catch (e) {
-      console.error('Login error', e)
-    }
-  })
+  // const onSubmit = handleSubmit(async () => {
+  //   try {
+  //     console.log('Form Submitted', password.value, email.value);
+  //     password.value = ''
+  //     email.value = ''
+  //   } catch (e) {
+  //     console.error('Login error', e)
+  //   }
+  // })
 
   const setMode = (newMode: 'login' | 'register') => {
     mode.value = newMode;
@@ -44,6 +44,6 @@ export const useAuth = defineStore('auth', () => {
     errors,
     submitForm,
     registerHandler,
-    onSubmit
+    // onSubmit
   }
 })
