@@ -15,7 +15,7 @@ import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/vue/24/solid'
             <router-link to="/">Home</router-link>
           </li>
           <li>
-            <router-link to="/career">Career</router-link>
+            <router-link to="/careers">Career</router-link>
           </li>
           <li>
             <router-link to="/about">About</router-link>

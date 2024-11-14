@@ -2,8 +2,11 @@
 import RoundedIcon from "@/components/RoundedIcon.vue";
 import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
 import {useAuth} from "@/store/modules/auth";
+import ErrorMessage from "@/components/ErrorMessage.vue";
 
 const authStore = useAuth()
+
+const onSubmit = authStore.onSubmit
 
 </script>
 
@@ -17,12 +20,18 @@ const authStore = useAuth()
         <p>Welcome back! Please log in to access your account.</p>
       </div>
       <div class="login__wrapper">
-        <form class="login__form" @submit.prevent="authStore.submitForm">
-          <div class="login__inputs-box">
-            <input type="email" v-model="authStore.email" placeholder="Enter your Email" class="login__input" required/>
-            <span v-if="authStore.errors.email">{{ authStore.errors.email }}asdasd</span>
-            <input type="password" v-model="authStore.password" placeholder="Enter your Password" class="login__input" required/>
-            <span v-if="authStore.errors.password">{{ authStore.errors.password }}asdasd</span>
+        <form class="login__form" @submit.prevent="onSubmit()">
+          <div class="login__inputs-inner">
+            <div class="login__inputs-box">
+              <input type="email" v-model="authStore.email" placeholder="Enter your Email" class="login__input"
+                     required autocomplete="current-password"/>
+              <ErrorMessage :error="authStore.errors.email">asd</ErrorMessage>
+            </div>
+            <div class="login__inputs-box">
+              <input type="password" v-model="authStore.password" placeholder="Enter your Password" class="login__input"
+                     required/>
+              <ErrorMessage :error="authStore.errors.password">asd</ErrorMessage>
+            </div>
           </div>
           <div class="login__buttons-box">
             <a href="#" class="login__forgot">Forgot Password?</a>
@@ -101,6 +110,4 @@ const authStore = useAuth()
 </template>
 
 <style scoped lang="scss">
-//@import "@/assets/styles/variables";
-//@import "@/assets/styles/auth";
 </style>

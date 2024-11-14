@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import RoundedIcon from "@/components/RoundedIcon.vue";
 import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
+import {useAuth} from "@/store/modules/auth";
 
+const authStore = useAuth()
 
 </script>
 
@@ -16,17 +18,31 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
       </div>
       <div class="login__wrapper">
         <form class="login__form" @submit.prevent="onSubmit">
-          <div class="login__inputs-box" :style="[{marginBottom: '10px'}]">
-            <input type="text" placeholder="Enter first name" class="login__input" required/>
-            <input type="text" placeholder="Enter last name" class="login__input" required/>
+          <div class="login__inputs-inner" :style="[{marginBottom: '10px'}]">
+            <div class="login__inputs-box">
+              <input type="text" placeholder="Enter first name" class="login__input" v-model="authStore.firstName"/>
+              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+            </div>
+            <div class="login__inputs-box">
+              <input type="text" placeholder="Enter last name" class="login__input" v-model="authStore.lastName"/>
+              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+            </div>
           </div>
-          <div class="login__inputs-box">
-            <input type="email" placeholder="Enter your Email" class="login__input" required/>
-            <input type="password" placeholder="Enter your Password" class="login__input" required/>
+          <div class="login__inputs-inner">
+            <div class="login__inputs-box">
+              <input type="email" placeholder="Enter your Email" class="login__input" v-model="authStore.email"/>
+              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+            </div>
+            <div class="login__inputs-box">
+              <input type="password" placeholder="Enter your Password" class="login__input" v-model="authStore.password"/>
+              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+            </div>
           </div>
           <div class="login__buttons-box">
-            <button type="submit" class="login__button login__button--primary">Sign Up</button>
-            <button type="button" @click="$emit('switch-to-login')" class="login__button login__button--secondary">Login</button>
+            <button type="submit" class="login__button login__button--primary" @click.prevent="authStore.registerHandler">Sign Up</button>
+            <button type="button" @click="$emit('switch-to-login')" class="login__button login__button--secondary">
+              Login
+            </button>
           </div>
         </form>
         <div class="login__social">
@@ -98,6 +114,4 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
 </template>
 
 <style scoped lang="scss">
-//@import "@/assets/styles/variables";
-//@import "@/assets/styles/auth";
 </style>
