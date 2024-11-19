@@ -4,7 +4,7 @@ import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
 import {useAuth} from "@/store/modules/auth";
 import router from "@/router";
 import {createUserWithEmailAndPassword} from "@firebase/auth";
-import {auth} from "@/firebase";
+import {auth} from "../../firebase.config";
 
 const authStore = useAuth()
 
@@ -28,21 +28,21 @@ const onSubmit = async (email: string, password: string) => {
         <p>Join our community today! Create an account to unlock exclusive features and personalized experiences.</p>
       </div>
       <div class="login__wrapper">
-        <form class="login__form" @submit.prevent="onSubmit(authStore.email, authStore.password)">
+        <form class="login__form" @submit.prevent="authStore.submitForm">
           <div class="login__inputs-inner" :style="[{marginBottom: '10px'}]">
             <div class="login__inputs-box">
               <input type="text" placeholder="Enter first name" class="login__input" v-model="authStore.firstName"/>
-              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+              <ErrorMessage :error="authStore.errors.firstName"></ErrorMessage>
             </div>
             <div class="login__inputs-box">
               <input type="text" placeholder="Enter last name" class="login__input" v-model="authStore.lastName"/>
-              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+              <ErrorMessage :error="authStore.errors.lastName"></ErrorMessage>
             </div>
           </div>
           <div class="login__inputs-inner">
             <div class="login__inputs-box">
               <input type="email" placeholder="Enter your Email" class="login__input" v-model="authStore.email"/>
-              <ErrorMessage :error="authStore.errors.password"></ErrorMessage>
+              <ErrorMessage :error="authStore.errors.email"></ErrorMessage>
             </div>
             <div class="login__inputs-box">
               <input type="password" placeholder="Enter your Password" class="login__input"
@@ -51,9 +51,7 @@ const onSubmit = async (email: string, password: string) => {
             </div>
           </div>
           <div class="login__buttons-box">
-            <button type="submit" class="login__button login__button--primary"
-                    @click.prevent="authStore.registerHandler">Sign Up
-            </button>
+            <button type="submit" class="login__button login__button--primary">Sign Up</button>
             <button type="button" @click="$emit('switch-to-login')" class="login__button login__button--secondary">
               Login
             </button>

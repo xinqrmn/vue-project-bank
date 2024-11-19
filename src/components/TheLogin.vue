@@ -10,10 +10,6 @@ const authStore = useAuth();
 
 const auth = getAuth()
 
-const onSubmit = async () => {
-
-}
-
 </script>
 
 <template>
@@ -26,7 +22,7 @@ const onSubmit = async () => {
         <p>Welcome back! Please log in to access your account.</p>
       </div>
       <div class="login__wrapper">
-        <form class="login__form" @submit.prevent="onSubmit">
+        <form class="login__form" @submit.prevent="authStore.submitForm">
           <div class="login__inputs-inner">
             <div class="login__inputs-box">
               <input type="email" v-model="authStore.email" placeholder="Enter your Email" class="login__input"
