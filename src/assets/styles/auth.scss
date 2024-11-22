@@ -58,13 +58,14 @@
     width: 100%;
     display: flex;
     align-items: start;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
     margin-bottom: 40px;
   }
 
   &__inputs-box {
-    width: 50%;
+    width: 48%;
 
 
     input {

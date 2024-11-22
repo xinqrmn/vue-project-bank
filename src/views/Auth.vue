@@ -1,26 +1,11 @@
 <script setup lang="ts">
 import Reviews from "@/components/reviews/Reviews.vue";
-import TheLogin from "@/components/TheLogin.vue";
-import TheRegister from "@/components/TheRegister.vue";
-import {useAuth} from "@/store/modules/auth";
+import Auth from "@/components/auth/Auth.vue";
 
-const auth = useAuth()
-
-const switchToLogin = () => {
-  auth.setMode('login')
-}
-const switchToRegister = () => {
-  auth.setMode('register')
-}
 </script>
 
 <template>
-  <template v-if="auth.mode === 'register'">
-    <TheRegister @switch-to-login="switchToLogin"/>
-  </template>
-  <template v-else-if="auth.mode === 'login'">
-    <TheLogin @switch-to-register="switchToRegister"/>
-  </template>
+  <Auth />
   <Reviews/>
 </template>
 

@@ -64,7 +64,7 @@ const onSubmit = async (email: string, password: string) => {
             <div class="line"></div>
           </div>
           <div class="login__icons">
-            <router-link to="">
+            <button @click="authStore.authWithGoogle">
               <RoundedIcon>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_67_207)">
@@ -88,8 +88,8 @@ const onSubmit = async (email: string, password: string) => {
                   </defs>
                 </svg>
               </RoundedIcon>
-            </router-link>
-            <router-link to="">
+            </button>
+            <button @click="authStore.authWithFacebook">
               <RoundedIcon>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_67_204)">
@@ -107,8 +107,8 @@ const onSubmit = async (email: string, password: string) => {
                   </defs>
                 </svg>
               </RoundedIcon>
-            </router-link>
-            <router-link to="">
+            </button>
+            <button @click="authStore.authWithApple">
               <RoundedIcon>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -116,7 +116,7 @@ const onSubmit = async (email: string, password: string) => {
                       fill="#CAFF33"/>
                 </svg>
               </RoundedIcon>
-            </router-link>
+            </button>
           </div>
         </div>
       </div>

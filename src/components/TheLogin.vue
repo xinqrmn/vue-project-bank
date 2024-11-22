@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import RoundedIcon from "@/components/RoundedIcon.vue";
 import DecorRightTopImage from "@/assets/img/decor-right-top.svg";
-import {getAuth, createUserWithEmailAndPassword} from "@firebase/auth";
 import {useAuth} from "@/store/modules/auth";
 import ErrorMessage from "@/components/ErrorMessage.vue";
-import router from "@/router";
 
 const authStore = useAuth();
 
-const auth = getAuth()
 
 </script>
 
@@ -50,7 +47,7 @@ const auth = getAuth()
             <div class="line"></div>
           </div>
           <div class="login__icons">
-            <router-link to="">
+            <button @click="authStore.authWithGoogle">
               <RoundedIcon>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_67_207)">
@@ -74,8 +71,8 @@ const auth = getAuth()
                   </defs>
                 </svg>
               </RoundedIcon>
-            </router-link>
-            <router-link to="">
+            </button>
+            <button @click="authStore.authWithFacebook">
               <RoundedIcon>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_67_204)">
@@ -93,8 +90,8 @@ const auth = getAuth()
                   </defs>
                 </svg>
               </RoundedIcon>
-            </router-link>
-            <router-link to="">
+            </button>
+            <button @click="authStore.authWithApple">
               <RoundedIcon>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -102,7 +99,7 @@ const auth = getAuth()
                       fill="#CAFF33"/>
                 </svg>
               </RoundedIcon>
-            </router-link>
+            </button>
           </div>
         </div>
       </div>
