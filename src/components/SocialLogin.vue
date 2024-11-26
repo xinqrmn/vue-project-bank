@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import {boolean} from "yup";
+
 const props = defineProps({
   authWithGoogle: {
     type: Function,
@@ -13,9 +15,14 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  isLoading: {
+    type: boolean,
+    default: false
+  }
 })
 
 import RoundedIcon from "@/components/RoundedIcon.vue";
+
 </script>
 
 <template>
@@ -26,7 +33,7 @@ import RoundedIcon from "@/components/RoundedIcon.vue";
       <div class="line"></div>
     </div>
     <div class="login__icons">
-      <button @click="props.authWithGoogle">
+      <button @click="props.authWithGoogle" aria-autocomplete="none">
         <RoundedIcon>
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_67_207)">
@@ -51,7 +58,7 @@ import RoundedIcon from "@/components/RoundedIcon.vue";
           </svg>
         </RoundedIcon>
       </button>
-      <button @click="props.authWithFacebook">
+      <button @click="props.authWithFacebook" aria-autocomplete="none">
         <RoundedIcon>
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_67_204)">
@@ -70,7 +77,7 @@ import RoundedIcon from "@/components/RoundedIcon.vue";
           </svg>
         </RoundedIcon>
       </button>
-      <button @click="props.authWithApple">
+      <button @click="props.authWithApple" aria-autocomplete="none">
         <RoundedIcon>
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

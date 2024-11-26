@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import ErrorMessage from "@/components/ErrorMessage.vue"
+import ErrorModal from "@/components/ErrorModal.vue"
+import SuccessModal from "@/components/SuccessModal.vue"
 import {useAuth} from "@/store/modules/auth"
 
 const authStore = useAuth()
@@ -30,7 +32,7 @@ const authStore = useAuth()
       </div>
     </div>
     <div class="login__buttons-box">
-      <a href="#" class="login__forgot" v-if="authStore.mode === 'login'">Forgot Password?</a>
+      <a href="#" class="login__forgot" v-if="authStore.mode === 'login'" @click.prevent="authStore.sendResetPasswordEmail('' + authStore.email)">Forgot Password?</a>
       <button type="submit" class="login__button login__button--primary">
         {{ authStore.mode === 'login' ? 'Login' : 'Sign up' }}
       </button>
@@ -38,6 +40,8 @@ const authStore = useAuth()
         {{ authStore.mode === 'login' ? 'Sign Up' : 'Login' }}
       </button>
     </div>
+    <ErrorModal :errorMessage="authStore.errorMessage" />
+    <SuccessModal :successMessage="authStore.successMessage" />
   </form>
 </template>
 
