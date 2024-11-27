@@ -117,7 +117,7 @@ export const useAuth = defineStore('auth', () => {
     }
   }
 
-  const sendResetPasswordEmail =  async (email: string) => {
+  const sendResetPasswordEmail = async (email: string) => {
     loading.value = true
     errorMessage.value = ''
     successMessage.value = ''
