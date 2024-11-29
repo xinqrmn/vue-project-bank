@@ -4,8 +4,6 @@ import ReleaseImageTwo from "@/assets/img/release-2.jpg";
 import ReleaseImageThree from "@/assets/img/release-3.jpg";
 import ReleaseImageFour from "@/assets/img/release-4.jpg";
 
-const date1 = new Date('2024-11-06').toLocaleDateString('en-GB');
-
 export const releaseData: IRelease[] = [
   {
     key: 'T0NZbib9Zq1',

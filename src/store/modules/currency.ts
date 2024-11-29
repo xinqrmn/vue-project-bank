@@ -12,10 +12,6 @@ import {transactions} from "@/store/data/transactionsData";
 
 const API_KEY = process.env.VUE_APP_EXCHANGE_KEY
 
-interface ICurrency {
-  [key: string]: number
-}
-
 interface ICurrencies {
   code: string
   name: string
