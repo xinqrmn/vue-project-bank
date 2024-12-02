@@ -1,5 +1,5 @@
-@import '@/assets/fonts/fonts';
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
+@use '@/assets/fonts/fonts';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

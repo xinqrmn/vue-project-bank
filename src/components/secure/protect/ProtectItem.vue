@@ -1,13 +1,12 @@
 <script setup lang="ts">
-
-import RoundedIcon from "@/components/RoundedIcon.vue";
+import RoundedIcon from '@/components/RoundedIcon.vue';
 
 interface IProtectProps {
-  title: string
-  text: string
+  title: string;
+  text: string;
 }
 
-const props = defineProps<IProtectProps>()
+const props = defineProps<IProtectProps>();
 </script>
 
 <template>
@@ -19,14 +18,11 @@ const props = defineProps<IProtectProps>()
       <h4>{{ props.title }}</h4>
     </div>
     <p>{{ props.text }}</p>
-
-
   </div>
 </template>
 
 <style scoped lang="scss">
-
-@import "@/assets/styles/variables";
+@use '@/assets/styles/variables' as *;
 
 .protect-item {
   width: 48%;
@@ -41,7 +37,4 @@ const props = defineProps<IProtectProps>()
     font-size: 24px;
   }
 }
-
-
-
 </style>

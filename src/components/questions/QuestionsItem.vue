@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {IQuestions} from "@/store/types/interfaces";
+import { IQuestions } from '@/store/types/interfaces';
 
 const props = defineProps<{
-  content: IQuestions
-}>()
+  content: IQuestions;
+}>();
 </script>
 
 <template>
@@ -11,11 +11,10 @@ const props = defineProps<{
     <h4>{{ props.content.question }}</h4>
     <p>{{ props.content.answer }}</p>
   </div>
-
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .questions-item {
   padding: 50px;

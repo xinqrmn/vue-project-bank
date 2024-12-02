@@ -1,42 +1,58 @@
-<script setup lang="ts">
-import {ArrowsRightLeftIcon} from '@heroicons/vue/24/solid'
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-<div class="currency-wrapper flex justify-between items-center">
-  <h3>Supported Currency</h3>
-  <ul class="currency flex items-center">
-    <li>
-      <a class="currency-item" href="https://coinmarketcap.com/currencies/tether/" target="_blank">
-        <img src="../../../assets/img/dollar-logo.svg" alt="dollar-logo">
-      </a>
-    </li>
-    <li>
-      <a class="currency-item" href="https://coinmarketcap.com/currencies/euro-coin/" target="_blank">
-        <img src="../../../assets/img/euro-logo.svg" alt="euro-logo">
-      </a>
-    </li>
-    <li>
-      <a class="currency-item" href="https://coinmarketcap.com/currencies/bitcoin/" target="_blank">
-        <img src="../../../assets/img/bitcoin-logo.svg" alt="bitcoin-logo">
-      </a>
-    </li>
-    <li>
-      <a class="currency-item" href="https://coinmarketcap.com/currencies/ethereum/" target="_blank">
-        <img src="../../../assets/img/ethereum-logo.svg" alt="ethereum-logo">
-      </a>
-    </li>
-  </ul>
-</div>
+  <div class="currency-wrapper flex justify-between items-center">
+    <h3>Supported Currency</h3>
+    <ul class="currency flex items-center">
+      <li>
+        <a
+          class="currency-item"
+          href="https://coinmarketcap.com/currencies/tether/"
+          target="_blank"
+        >
+          <img src="../../../assets/img/dollar-logo.svg" alt="dollar-logo" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="currency-item"
+          href="https://coinmarketcap.com/currencies/euro-coin/"
+          target="_blank"
+        >
+          <img src="../../../assets/img/euro-logo.svg" alt="euro-logo" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="currency-item"
+          href="https://coinmarketcap.com/currencies/bitcoin/"
+          target="_blank"
+        >
+          <img src="../../../assets/img/bitcoin-logo.svg" alt="bitcoin-logo" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="currency-item"
+          href="https://coinmarketcap.com/currencies/ethereum/"
+          target="_blank"
+        >
+          <img
+            src="../../../assets/img/ethereum-logo.svg"
+            alt="ethereum-logo"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .currency-wrapper {
   display: inline-flex;
-  background-color: #22251B;
+  background-color: #22251b;
   padding: 9px 20px;
   border-radius: 77px;
   font-weight: 400;

@@ -1,13 +1,16 @@
 <script setup lang="ts">
-
-import QuestionsInner from "@/components/questions/QuestionsInner.vue";
+import QuestionsInner from '@/components/questions/QuestionsInner.vue';
 </script>
 
 <template>
   <section class="questions mb-36">
     <div class="container">
-      <h3 class="title"><span class="text-primary">Frequently </span>Asked Questions</h3>
-      <p class="mb-20 w-3/4">Still you have any questions? Contact our Team via support@yourbank.com</p>
+      <h3 class="title">
+        <span class="text-primary">Frequently </span>Asked Questions
+      </h3>
+      <p class="mb-20 w-3/4">
+        Still you have any questions? Contact our Team via support@yourbank.com
+      </p>
 
       <QuestionsInner />
     </div>
@@ -15,6 +18,5 @@ import QuestionsInner from "@/components/questions/QuestionsInner.vue";
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
-
+@use '@/assets/styles/variables' as *;
 </style>

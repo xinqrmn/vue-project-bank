@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import {PlusIcon} from '@heroicons/vue/24/solid'
+import { PlusIcon } from '@heroicons/vue/24/solid';
 </script>
 
 <template>
-  <div class="notification flex items-center text-white gap-2 rounded-lg inline-flex">
-    <div class="notification-icon flex rounded-full justify-center items-center">
-      <PlusIcon class="inline size-6 text-black"/>
+  <div
+    class="notification flex items-center text-white gap-2 rounded-lg inline-flex"
+  >
+    <div
+      class="notification-icon flex rounded-full justify-center items-center"
+    >
+      <PlusIcon class="inline size-6 text-black" />
     </div>
     <div class="notification-list">
       <p>+ $5000,00</p>
@@ -15,10 +19,10 @@ import {PlusIcon} from '@heroicons/vue/24/solid'
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .notification {
-  background-color: #22251B;
+  background-color: #22251b;
   padding: 12px 18px;
 }
 
@@ -29,11 +33,9 @@ import {PlusIcon} from '@heroicons/vue/24/solid'
 }
 
 .notification-list {
-
   span {
     color: $color-white-90;
     font-size: 14px;
   }
 }
-
 </style>

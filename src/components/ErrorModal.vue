@@ -10,12 +10,15 @@ const props = defineProps({
 
 const errorMessage = ref(props.errorMessage);
 
-watch(() => props.errorMessage, (newMessage) => {
-  errorMessage.value = newMessage;
-  setTimeout(() => {
-    errorMessage.value = '';
-  }, 3000);
-});
+watch(
+  () => props.errorMessage,
+  (newMessage) => {
+    errorMessage.value = newMessage;
+    setTimeout(() => {
+      errorMessage.value = '';
+    }, 3000);
+  }
+);
 </script>
 
 <template>
@@ -45,11 +48,13 @@ watch(() => props.errorMessage, (newMessage) => {
   font-size: 14px;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

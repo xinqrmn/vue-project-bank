@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SecureImg from '@/assets/img/secure-header.jpg'
-import HeaderDecor from '@/assets/img/careers-decor.svg'
+import SecureImg from '@/assets/img/secure-header.jpg';
+import HeaderDecor from '@/assets/img/careers-decor.svg';
 </script>
 
 <template>
@@ -8,20 +8,27 @@ import HeaderDecor from '@/assets/img/careers-decor.svg'
     <div class="container">
       <div class="header-inner">
         <div class="header-title">
-          <h2 class="title mb-5"> Your Security is Our <span class="text-primary"> Top Priority </span></h2>
-          <p>At YourBank, we understand the importance of keeping your financial information secure. We employ robust
-            security measures and advanced technologies to protect your personal and financial data. Rest assured that
-            when you bank with us, your security is our utmost priority.</p>
+          <h2 class="title mb-5">
+            Your Security is Our
+            <span class="text-primary"> Top Priority </span>
+          </h2>
+          <p>
+            At YourBank, we understand the importance of keeping your financial
+            information secure. We employ robust security measures and advanced
+            technologies to protect your personal and financial data. Rest
+            assured that when you bank with us, your security is our utmost
+            priority.
+          </p>
         </div>
-        <img :src=SecureImg alt="header image" class="header-image">
-        <img :src=HeaderDecor alt="header decor" class="header-decor">
+        <img :src="SecureImg" alt="header image" class="header-image" />
+        <img :src="HeaderDecor" alt="header decor" class="header-decor" />
       </div>
     </div>
   </header>
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/variables";
+@use '@/assets/styles/variables' as *;
 
 .header-inner {
   height: 80vh;
@@ -57,5 +64,4 @@ import HeaderDecor from '@/assets/img/careers-decor.svg'
   position: absolute;
   z-index: 22;
 }
-
 </style>

@@ -1,33 +1,32 @@
 <script setup lang="ts">
-import useReviews from "@/store/modules/reviews"
-import {Swiper, SwiperSlide} from "swiper/vue"
-import ReviewsIcon from "@/assets/img/reviews-logo.svg"
+import useReviews from '@/store/modules/reviews';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import ReviewsIcon from '@/assets/img/reviews-logo.svg';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import {Navigation, Keyboard} from "swiper/modules";
+import { Navigation, Keyboard } from 'swiper/modules';
 
-const reviews = useReviews()
+const reviews = useReviews();
 </script>
 
 <template>
   <div class="reviews-bottom">
     <div class="reviews-backdrop--left"></div>
     <swiper
-        class="review-slider flex justify-between items-center"
-        :modules="[Navigation, Keyboard]"
-        :slides-per-view="3"
-        :space-between="120"
-        navigation
-        :keyboard="{enabled: true, onlyInViewport: true}"
-        loop
+      class="review-slider flex justify-between items-center"
+      :modules="[Navigation, Keyboard]"
+      :slides-per-view="3"
+      :space-between="120"
+      navigation
+      :keyboard="{ enabled: true, onlyInViewport: true }"
+      loop
     >
-      <swiper-slide
-          v-for="review in reviews.filteredReviews"
-          :key="review.key"
-      >
-        <div class="review-card w-full flex flex-col justify-between items-center gap-14">
+      <swiper-slide v-for="review in reviews.filteredReviews" :key="review.key">
+        <div
+          class="review-card w-full flex flex-col justify-between items-center gap-14"
+        >
           <div class="review-quote">
-            <img :src="ReviewsIcon" alt="reviews logo">
+            <img :src="ReviewsIcon" alt="reviews logo" />
           </div>
           <p>{{ review.text }}</p>
           <h4 class="text-primary">{{ review.author }}</h4>
@@ -39,12 +38,11 @@ const reviews = useReviews()
 </template>
 
 <style lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .reviews-bottom {
   width: 100%;
   position: relative;
-
 }
 
 .reviews-backdrop--right,
@@ -60,11 +58,11 @@ const reviews = useReviews()
 }
 
 .reviews-backdrop--right {
-  background: linear-gradient(270deg, #191919 30%, rgba(0,0,0,0) 80%);
+  background: linear-gradient(270deg, #191919 30%, rgba(0, 0, 0, 0) 80%);
   right: -100px;
 }
 .reviews-backdrop--left {
-  background: linear-gradient(90deg, #191919 30%, rgba(0,0,0,0) 80%);
+  background: linear-gradient(90deg, #191919 30%, rgba(0, 0, 0, 0) 80%);
   left: -100px;
 }
 .review-slider {
@@ -76,13 +74,10 @@ const reviews = useReviews()
 
   &.swiper {
     position: initial;
-
   }
 
-
-
   .swiper-wrapper {
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
 
   .swiper-slide {
@@ -141,7 +136,6 @@ const reviews = useReviews()
 }
 
 .review-card {
-
   p {
     text-align: center;
     font-weight: 400;
@@ -179,5 +173,4 @@ const reviews = useReviews()
     left: 0;
   }
 }
-
 </style>

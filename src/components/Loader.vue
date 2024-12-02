@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="loader-container">
@@ -9,7 +7,6 @@
 </template>
 
 <style scoped lang="scss">
-
 .loader-container {
   position: absolute;
   top: 0;
@@ -27,7 +24,7 @@
 
 .loader {
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #CAFF33;
+  border-left-color: #caff33;
   border-radius: 50%;
   width: 50px;
   height: 50px;

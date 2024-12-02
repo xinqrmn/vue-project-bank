@@ -1,20 +1,26 @@
 <script setup lang="ts">
-import CasesTile from "@/components/home/cases/CasesTile.vue"
-import DecorTopLeft from '@/assets/img/decor-center.png'
-import DecorTopRight from '@/assets/img/decor-right-top.png'
+import CasesTile from '@/components/home/cases/CasesTile.vue';
+import DecorTopLeft from '@/assets/img/decor-center.png';
+import DecorTopRight from '@/assets/img/decor-right-top.png';
 
 interface IProps {
-  imagePos: string,
-  titles: Array<string>,
+  imagePos: string;
+  titles: Array<string>;
 }
 
-const props = defineProps<IProps>()
-
+const props = defineProps<IProps>();
 </script>
 
 <template>
   <div class="grid-tale">
-    <img :class="['tale-decor', props.imagePos === 'top-left' ? 'top-left' : 'top-right']" :src="props.imagePos === 'top-left' ? DecorTopLeft : DecorTopRight" alt="decor-left-top">
+    <img
+      :class="[
+        'tale-decor',
+        props.imagePos === 'top-left' ? 'top-left' : 'top-right',
+      ]"
+      :src="props.imagePos === 'top-left' ? DecorTopLeft : DecorTopRight"
+      alt="decor-left-top"
+    />
     <cases-tile :title="titles[0]">
       <template v-slot:default>
         <slot></slot>
@@ -39,7 +45,7 @@ const props = defineProps<IProps>()
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .grid-tale {
   position: relative;
@@ -58,7 +64,6 @@ const props = defineProps<IProps>()
     object-fit: cover;
     z-index: 1;
 
-
     &.top-left {
       left: 0;
     }
@@ -67,5 +72,4 @@ const props = defineProps<IProps>()
     }
   }
 }
-
 </style>

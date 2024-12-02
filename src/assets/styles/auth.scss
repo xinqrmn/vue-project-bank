@@ -1,4 +1,4 @@
-@import "variables";
+@use 'variables' as *;
 
 .login {
   width: 80%;
@@ -6,7 +6,7 @@
   position: relative;
   border: 1px solid $color-grey-15;
   min-height: 80vh;
-  background-image: url("@/assets/img/auth-bg.jpg");
+  background-image: url('@/assets/img/auth-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
@@ -67,7 +67,6 @@
   &__inputs-box {
     width: 48%;
 
-
     input {
       width: 100%;
       border-radius: 55px;
@@ -89,7 +88,6 @@
     gap: 15px;
     margin-bottom: 25px;
   }
-
 
   &__forgot {
     width: max-content;
@@ -169,7 +167,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #D3FF39;
+      color: #d3ff39;
       font-size: 1.5rem;
       cursor: pointer;
     }

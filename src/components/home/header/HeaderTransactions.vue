@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import {useTransactions} from "@/store/modules/transactions";
-import {onMounted, ref, watch} from "vue"
-import {ArrowsRightLeftIcon} from '@heroicons/vue/24/solid'
+import { useTransactions } from '@/store/modules/transactions';
+import { onMounted, ref, watch } from 'vue';
+import { ArrowsRightLeftIcon } from '@heroicons/vue/24/solid';
 
 export interface Transaction {
-  id: string
-  name: string
-  amount: number
-  type: 'income' | 'expense'
+  id: string;
+  name: string;
+  amount: number;
+  type: 'income' | 'expense';
 }
 
-const transactionsStore = useTransactions()
-const transactionsList = ref<Transaction[]>([])
-const lastTransaction = transactionsStore.lastThreeTransactions
+const transactionsStore = useTransactions();
+const transactionsList = ref<Transaction[]>([]);
+const lastTransaction = transactionsStore.lastThreeTransactions;
 
 function getTransactionStyle(index: number) {
-  const scale = 1 - index * 0.1
-  const translateY = index * 62
-  const opacity = 1 - index * 0.3
+  const scale = 1 - index * 0.1;
+  const translateY = index * 62;
+  const opacity = 1 - index * 0.3;
 
   return {
     transform: `scale(${scale}) translateY(${translateY}px)`,
@@ -27,16 +27,15 @@ function getTransactionStyle(index: number) {
 }
 
 onMounted(() => {
-  transactionsList.value = lastTransaction
-})
+  transactionsList.value = lastTransaction;
+});
 
 watch(
-    () => transactionsStore.lastThreeTransactions,
-    (newTransactions) => {
-      transactionsList.value = newTransactions;
-    }
+  () => transactionsStore.lastThreeTransactions,
+  (newTransactions) => {
+    transactionsList.value = newTransactions;
+  }
 );
-
 </script>
 
 <template>
@@ -44,14 +43,14 @@ watch(
     <h3 class="mb-4">Your Transactions</h3>
     <div class="transactions-list">
       <div
-          class="transaction-item"
-          v-for="(trans, idx) in transactionsList"
-          :key="trans.id"
-          :style="getTransactionStyle(idx)"
+        class="transaction-item"
+        v-for="(trans, idx) in transactionsList"
+        :key="trans.id"
+        :style="getTransactionStyle(idx)"
       >
         <div class="icon-wrapper">
           <div class="transaction-icon">
-            <ArrowsRightLeftIcon class="inline size-6 text-black text-center"/>
+            <ArrowsRightLeftIcon class="inline size-6 text-black text-center" />
           </div>
         </div>
         <div class="transaction-details">
@@ -59,7 +58,9 @@ watch(
           <span class="transaction-name">{{ trans.name }}</span>
         </div>
         <div class="transaction-amount" :class="{ negative: trans.amount < 0 }">
-          {{ trans.type === 'income' ? '+' : '-' }}${{ Math.abs(trans.amount).toFixed(2) }}
+          {{ trans.type === 'income' ? '+' : '-' }}${{
+            Math.abs(trans.amount).toFixed(2)
+          }}
         </div>
       </div>
     </div>
@@ -67,8 +68,7 @@ watch(
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
-
+@use '@/assets/styles/variables' as *;
 
 .transaction-block {
   //padding: 20px;

@@ -1,12 +1,10 @@
 <script setup lang="ts">
-
 interface IMissionItemProps {
-  title: string
-  text: string
+  title: string;
+  text: string;
 }
 
-const props = defineProps<IMissionItemProps>()
-
+const props = defineProps<IMissionItemProps>();
 </script>
 
 <template>
@@ -17,7 +15,7 @@ const props = defineProps<IMissionItemProps>()
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .mission-item {
   width: 55%;
@@ -38,5 +36,4 @@ const props = defineProps<IMissionItemProps>()
     border-left: 1px solid $color-green-60;
   }
 }
-
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ReviewsTop from "@/components/reviews/ReviewsTop.vue"
-import ReviewsSlider from "@/components/reviews/ReviewsSlider.vue"
+import ReviewsTop from '@/components/reviews/ReviewsTop.vue';
+import ReviewsSlider from '@/components/reviews/ReviewsSlider.vue';
 </script>
 
 <template>
@@ -12,6 +12,4 @@ import ReviewsSlider from "@/components/reviews/ReviewsSlider.vue"
   </section>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

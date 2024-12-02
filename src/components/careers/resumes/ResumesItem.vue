@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import {IResumesProps} from "@/store/types/interfaces";
-import {BriefcaseIcon} from "@heroicons/vue/24/solid";
+import { IResumesProps } from '@/store/types/interfaces';
+import { BriefcaseIcon } from '@heroicons/vue/24/solid';
 
-const props = defineProps<IResumesProps>()
-
+const props = defineProps<IResumesProps>();
 </script>
 
 <template>
@@ -17,22 +16,20 @@ const props = defineProps<IResumesProps>()
     </div>
 
     <div>
-      <h5
-          class="mb-5"
-      >About This Job</h5>
+      <h5 class="mb-5">About This Job</h5>
       <p class="mb-10">{{ props.about }}</p>
     </div>
 
     <div>
       <h5 class="mb-5">Requirements & Qualifications</h5>
-      <ul class=" mb-12">
+      <ul class="mb-12">
         <li
-            v-for="item in props.requirement"
-            :key="item.key"
-            class="resumes-requirement flex gap-3 items-center"
+          v-for="item in props.requirement"
+          :key="item.key"
+          class="resumes-requirement flex gap-3 items-center"
         >
           <div class="">
-            <BriefcaseIcon class="size-7"/>
+            <BriefcaseIcon class="size-7" />
           </div>
           <p>{{ item.name }}</p>
         </li>
@@ -41,11 +38,10 @@ const props = defineProps<IResumesProps>()
 
     <button class="btn font-bold">Apply Now</button>
   </div>
-
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/variables";
+@use '@/assets/styles/variables' as *;
 
 .resumes-item {
   border-radius: 16px;
@@ -78,5 +74,4 @@ const props = defineProps<IResumesProps>()
 .resumes-requirement:not(:last-child) {
   margin-bottom: 20px;
 }
-
 </style>

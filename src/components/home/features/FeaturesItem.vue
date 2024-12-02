@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import {ArrowUpRightIcon} from "@heroicons/vue/24/solid";
-import {IFeaturesContent} from "@/store/types/interfaces";
+import { ArrowUpRightIcon } from '@heroicons/vue/24/solid';
+import { IFeaturesContent } from '@/store/types/interfaces';
 
 const props = defineProps<{
-  content: IFeaturesContent
-}>()
-
+  content: IFeaturesContent;
+}>();
 </script>
 
 <template>
   <router-link to="/" class="features-item">
     <div class="features-title flex justify-between">
       <h4>{{ props.content.title }}</h4>
-      <ArrowUpRightIcon class="size-8 text-primary"/>
+      <ArrowUpRightIcon class="size-8 text-primary" />
     </div>
     <p>{{ props.content.text }}</p>
   </router-link>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .features-item {
   padding: 50px;
@@ -37,5 +36,4 @@ const props = defineProps<{
     }
   }
 }
-
 </style>

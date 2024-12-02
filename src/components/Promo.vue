@@ -1,27 +1,31 @@
 <script setup lang="ts">
-import PromoDecor from '@/assets/img/decor-center.svg'
+import PromoDecor from '@/assets/img/decor-center.svg';
 </script>
 
 <template>
   <section class="promo mb-36">
     <div class="container">
       <div class="promo-inner">
-        <img class="promo-decor" :src="PromoDecor" alt="">
+        <img class="promo-decor" :src="PromoDecor" alt="" />
         <div class="promo-text">
-          <h3 class="title">Start your financial journey with <span class="text-primary">YourBank today!</span></h3>
-          <p>Ready to take control of your finances? Join YourBank now, and let us help you achieve your financial goals
-            with our tailored solutions and exceptional customer service</p>
+          <h3 class="title">
+            Start your financial journey with
+            <span class="text-primary">YourBank today!</span>
+          </h3>
+          <p>
+            Ready to take control of your finances? Join YourBank now, and let
+            us help you achieve your financial goals with our tailored solutions
+            and exceptional customer service
+          </p>
         </div>
-        <router-link to="/auth" class="promo-link">
-          Open account
-        </router-link>
+        <router-link to="/auth" class="promo-link"> Open account </router-link>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .promo-inner {
   padding: 80px;

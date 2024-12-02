@@ -1,37 +1,35 @@
 <script setup lang="ts">
-import {ICaseInfo} from "@/store/types/interfaces";
+import { ICaseInfo } from '@/store/types/interfaces';
 
 const props = defineProps<{
-  caseInfo: ICaseInfo
-}>()
-
-
+  caseInfo: ICaseInfo;
+}>();
 </script>
 
 <template>
-  <div class="grid-info flex flex-col justify-between items-start h-full w-full">
+  <div
+    class="grid-info flex flex-col justify-between items-start h-full w-full"
+  >
     <div class="grid-text">
       <h4>{{ props.caseInfo.title }}</h4>
       <p>{{ props.caseInfo.subtitle }}</p>
     </div>
     <dl class="flex justify-between items-center gap-12">
       <div
-          class="grid-desc"
-          v-for="item in props.caseInfo.items"
-          :key="item.percentName"
+        class="grid-desc"
+        v-for="item in props.caseInfo.items"
+        :key="item.percentName"
       >
         <dt class="text-primary">{{ item.percent }}%</dt>
         <dd>{{ item.percentName }}</dd>
       </div>
     </dl>
-    <router-link class="grid-more" to="/">
-      Learn More
-    </router-link>
+    <router-link class="grid-more" to="/"> Learn More </router-link>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .grid-info {
   padding: 30px 0;
@@ -55,7 +53,6 @@ const props = defineProps<{
 }
 
 .grid-desc {
-
   &:not(:last-child) {
     border-right: 2px dashed $color-grey-15;
   }
@@ -65,5 +62,4 @@ const props = defineProps<{
     font-size: 58px;
   }
 }
-
 </style>

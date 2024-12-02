@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '/src/views/Home.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Home from '/src/views/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       auth: false,
       layout: 'main',
-    }
+    },
   },
   {
     path: '/careers',
@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       auth: false,
       layout: 'main',
-    }
+    },
   },
   {
     path: '/about',
@@ -27,7 +27,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       auth: false,
       layout: 'main',
-    }
+    },
   },
   {
     path: '/secure',
@@ -36,7 +36,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       auth: false,
       layout: 'main',
-    }
+    },
   },
   {
     path: '/auth',
@@ -45,15 +45,15 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       auth: false,
       layout: 'auth',
-    }
-  }
-]
+    },
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   linkActiveClass: 'active',
   linkExactActiveClass: 'active',
-})
+});
 
-export default router
+export default router;

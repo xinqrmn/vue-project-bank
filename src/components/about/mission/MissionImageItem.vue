@@ -1,22 +1,26 @@
 <script setup lang="ts">
-import MissionDecor from "@/assets/img/mission-decor.svg";
+import MissionDecor from '@/assets/img/mission-decor.svg';
 
-const props = defineProps<IMissionImageItemProps>()
+const props = defineProps<IMissionImageItemProps>();
 
 interface IMissionImageItemProps {
-  source: string
+  source: string;
 }
 </script>
 
 <template>
   <div class="mission-image-item">
-    <img :src=MissionDecor alt="Mission Decor"/>
-    <img :src=props.source alt="Mission Image First" class="mission-image absolute bottom-0"/>
+    <img :src="MissionDecor" alt="Mission Decor" />
+    <img
+      :src="props.source"
+      alt="Mission Image First"
+      class="mission-image absolute bottom-0"
+    />
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/variables";
+@use '@/assets/styles/variables' as *;
 
 .mission-image-item {
   width: 45%;

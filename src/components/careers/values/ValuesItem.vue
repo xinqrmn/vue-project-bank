@@ -1,9 +1,7 @@
 <script setup lang="ts">
+import { IValuesProps } from '@/store/types/interfaces';
 
-import {IValuesProps} from "@/store/types/interfaces";
-
-const props = defineProps<IValuesProps>()
-
+const props = defineProps<IValuesProps>();
 </script>
 
 <template>
@@ -14,7 +12,7 @@ const props = defineProps<IValuesProps>()
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .values-item {
   width: 47%;
@@ -44,5 +42,4 @@ const props = defineProps<IValuesProps>()
     color: $color-grey-70;
   }
 }
-
 </style>

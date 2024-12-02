@@ -1,70 +1,75 @@
 <script setup lang="ts">
-import QuestionsItem from "@/components/questions/QuestionsItem.vue";
-import {useQuestions} from "@/store/modules/questions";
-import {ChevronDownIcon} from "@heroicons/vue/24/solid";
-import {computed, nextTick, onMounted, ref} from "vue";
+import QuestionsItem from '@/components/questions/QuestionsItem.vue';
+import { useQuestions } from '@/store/modules/questions';
+import { ChevronDownIcon } from '@heroicons/vue/24/solid';
+import { computed, nextTick, onMounted, ref } from 'vue';
 
-const questions = useQuestions()
-const isExpanded = ref<boolean>(false)
-const containerHeight = ref<string>('0px')
-const fourItemsHeight = ref(0)
+const questions = useQuestions();
+const isExpanded = ref<boolean>(false);
+const containerHeight = ref<string>('0px');
+const fourItemsHeight = ref(0);
 
-onMounted( async () => {
+onMounted(async () => {
   await nextTick();
   setContainerHeight();
-})
+});
 
-const visibleQuestions = computed(() => isExpanded.value ? questions.data : questions.data.slice(0, 4))
+const visibleQuestions = computed(() =>
+  isExpanded.value ? questions.data : questions.data.slice(0, 4)
+);
 
 const setContainerHeight = () => {
-  const container = document.querySelector('.questions-inner')
+  const container = document.querySelector('.questions-inner');
 
   if (container) {
     if (isExpanded.value) {
-      container.style.maxHeight = 'none'
-      containerHeight.value = `${container.scrollHeight}px`
+      container.style.maxHeight = 'none';
+      containerHeight.value = `${container.scrollHeight}px`;
 
-      setTimeout(() => containerHeight.value = 'auto', 600)
+      setTimeout(() => (containerHeight.value = 'auto'), 600);
     } else {
-      const questionItems = container.querySelectorAll('.questions-item')
+      const questionItems = container.querySelectorAll('.questions-item');
       if (questionItems.length > 0) {
         fourItemsHeight.value = Array.from(questionItems)
-            .slice(0, 4)
-            .reduce((totalHeight, item) => totalHeight + (item as HTMLElement).offsetHeight, 0)
-        containerHeight.value = `${fourItemsHeight.value}px`
+          .slice(0, 4)
+          .reduce(
+            (totalHeight, item) =>
+              totalHeight + (item as HTMLElement).offsetHeight,
+            0
+          );
+        containerHeight.value = `${fourItemsHeight.value}px`;
       }
     }
   }
-}
+};
 
 const toggleExpanded = async () => {
-  isExpanded.value = !isExpanded.value
-  await nextTick()
-  setContainerHeight()
-}
-
+  isExpanded.value = !isExpanded.value;
+  await nextTick();
+  setContainerHeight();
+};
 </script>
 
 <template>
-  <div
-      class="questions-inner"
-      :style="{maxHeight: containerHeight}"
-  >
+  <div class="questions-inner" :style="{ maxHeight: containerHeight }">
     <questions-item
-        v-for="question in visibleQuestions"
-        :key="question.key"
-        :content="question"
+      v-for="question in visibleQuestions"
+      :key="question.key"
+      :content="question"
     ></questions-item>
     <div v-if="!isExpanded" class="question-shadow"></div>
   </div>
-  <button :class="['expand-btn', {active: isExpanded}]" @click="toggleExpanded">
+  <button
+    :class="['expand-btn', { active: isExpanded }]"
+    @click="toggleExpanded"
+  >
     {{ isExpanded ? 'Show Less ' : 'Load All FAQs' }}
-    <ChevronDownIcon class="size-7"/>
+    <ChevronDownIcon class="size-7" />
   </button>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .questions-inner {
   display: grid;
@@ -102,7 +107,7 @@ const toggleExpanded = async () => {
   outline: none;
 
   svg {
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   &.active {

@@ -1,43 +1,41 @@
 <script setup lang="ts">
-import {onMounted, computed, ref} from 'vue'
-import {useCurrency} from "@/store/modules/currency";
+import { onMounted, computed, ref } from 'vue';
+import { useCurrency } from '@/store/modules/currency';
 
-const currencyStore = useCurrency()
+const currencyStore = useCurrency();
 
 onMounted(() => {
   // currencyStore.fetchExchangeRate()
-})
+});
 
 interface ICurrencies {
-  code: string
-  name: string
-  flag: string
+  code: string;
+  name: string;
+  flag: string;
 }
 
-const amountTo = computed(() => currencyStore.exchangeRes.toFixed(2))
-const showDropdownFrom = ref(false)
-const showDropdownTo = ref(false)
-const imagePathFrom = ref(require('@/assets/img/flags/flag-of-india.png'))
-const imagePathTo = ref(require('@/assets/img/flags/flag-of-usa.png'))
+const amountTo = computed(() => currencyStore.exchangeRes.toFixed(2));
+const showDropdownFrom = ref(false);
+const showDropdownTo = ref(false);
+const imagePathFrom = ref(require('@/assets/img/flags/flag-of-india.png'));
+const imagePathTo = ref(require('@/assets/img/flags/flag-of-usa.png'));
 
-
-const openDropdownFrom = () => showDropdownFrom.value = true
-const closeDropdownFrom = () => showDropdownFrom.value = false
-const openDropdownTo = () => showDropdownTo.value = true
-const closeDropdownTo = () => showDropdownTo.value = false
+const openDropdownFrom = () => (showDropdownFrom.value = true);
+const closeDropdownFrom = () => (showDropdownFrom.value = false);
+const openDropdownTo = () => (showDropdownTo.value = true);
+const closeDropdownTo = () => (showDropdownTo.value = false);
 
 const selectCurrencyFrom = (currency: ICurrencies) => {
-  currencyStore.currencyFrom = currency.code
-  imagePathFrom.value = currency.flag
-  showDropdownFrom.value = false
-}
+  currencyStore.currencyFrom = currency.code;
+  imagePathFrom.value = currency.flag;
+  showDropdownFrom.value = false;
+};
 
 const selectCurrencyTo = (currency: ICurrencies) => {
-  currencyStore.currencyTo = currency.code
-  imagePathTo.value = currency.flag
-  showDropdownTo.value = false
-}
-
+  currencyStore.currencyTo = currency.code;
+  imagePathTo.value = currency.flag;
+  showDropdownTo.value = false;
+};
 </script>
 
 <template>
@@ -46,66 +44,88 @@ const selectCurrencyTo = (currency: ICurrencies) => {
     <div class="exchange-container overflow-visible">
       <div class="currency-block left">
         <div class="currency-header">
-
           <div class="custom-select" @mouseleave="closeDropdownFrom">
-            <div class="selected-option" @mouseenter="openDropdownFrom" >
-              <img
-                  class="mr-1.5"
-                  :src="imagePathFrom"
-                  alt="flag">
+            <div class="selected-option" @mouseenter="openDropdownFrom">
+              <img class="mr-1.5" :src="imagePathFrom" alt="flag" />
               <span>{{ currencyStore.currencyFrom }}</span>
-              <span :class="{active: showDropdownFrom}" class="arrow">&#9660;</span>
+              <span :class="{ active: showDropdownFrom }" class="arrow"
+                >&#9660;</span
+              >
             </div>
             <ul v-if="showDropdownFrom" class="dropdown">
               <li
-                  v-for="currency in currencyStore.currencies"
-                  :key="currency.code"
-                  @click="selectCurrencyFrom(currency)"
-                  class="dropdown-option"
+                v-for="currency in currencyStore.currencies"
+                :key="currency.code"
+                @click="selectCurrencyFrom(currency)"
+                class="dropdown-option"
               >
-                <img class="mr-1" :src="currency.flag" :alt="currency.name">
+                <img class="mr-1" :src="currency.flag" :alt="currency.name" />
                 <span>{{ currency.code }}</span>
               </li>
             </ul>
           </div>
         </div>
-        <input class="currency-amount" type="number" v-model="currencyStore.amountFrom" :placeholder="currencyStore.amountFrom === '' ? 0 : currencyStore.amountFrom" />
+        <input
+          class="currency-amount"
+          type="number"
+          v-model="currencyStore.amountFrom"
+          :placeholder="
+            currencyStore.amountFrom === '' ? 0 : currencyStore.amountFrom
+          "
+        />
       </div>
 
       <div class="currency-block right">
         <div class="currency-header">
-
           <div class="custom-select" @mouseleave="closeDropdownTo">
             <div class="selected-option" @mouseenter="openDropdownTo">
               <img
-                  class="mr-1.5"
-                  :src="imagePathTo"
-                  :alt="currencyStore.currencies.find(c => c.code === currencyStore.currencyTo)?.name || 'Flag'">
+                class="mr-1.5"
+                :src="imagePathTo"
+                :alt="
+                  currencyStore.currencies.find(
+                    (c) => c.code === currencyStore.currencyTo
+                  )?.name || 'Flag'
+                "
+              />
               <span>{{ currencyStore.currencyTo }}</span>
-              <span :class="{active: showDropdownTo}" class="arrow">&#9660;</span>
+              <span :class="{ active: showDropdownTo }" class="arrow"
+                >&#9660;</span
+              >
             </div>
             <ul v-if="showDropdownTo" class="dropdown">
               <li
-                  v-for="currency in currencyStore.currencies"
-                  :key="currency.code"
-                  @click="selectCurrencyTo(currency)"
-                  class="dropdown-option"
+                v-for="currency in currencyStore.currencies"
+                :key="currency.code"
+                @click="selectCurrencyTo(currency)"
+                class="dropdown-option"
               >
-                <img class="mr-1" :src="currency.flag" :alt="currency.name">
+                <img class="mr-1" :src="currency.flag" :alt="currency.name" />
                 <span>{{ currency.code }}</span>
               </li>
             </ul>
           </div>
         </div>
-        <input class="currency-amount" type="number" v-model="amountTo" placeholder="amountTo" disabled/>
+        <input
+          class="currency-amount"
+          type="number"
+          v-model="amountTo"
+          placeholder="amountTo"
+          disabled
+        />
       </div>
     </div>
-    <button class="exchange-button" @click="currencyStore.fetchExchangeRate(amountTo)">Exchange</button>
+    <button
+      class="exchange-button"
+      @click="currencyStore.fetchExchangeRate(amountTo)"
+    >
+      Exchange
+    </button>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .money-exchange-block {
   padding: 20px;
@@ -136,13 +156,13 @@ h3 {
   flex: 1;
   text-align: center;
 
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 
@@ -163,7 +183,6 @@ h3 {
 }
 
 .selected-option {
-
   img {
     display: block;
     width: 35px;
@@ -217,13 +236,12 @@ h3 {
   &::placeholder {
     color: $color-white;
   }
-
 }
 
 .exchange-button {
   width: 100%;
   padding: 13px;
-  background-color: #22251B;
+  background-color: #22251b;
   color: $color-green-65;
   font-weight: 400;
   font-size: 16px;
@@ -264,7 +282,7 @@ h3 {
 .arrow {
   margin-left: auto;
   font-size: 12px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .arrow.active {

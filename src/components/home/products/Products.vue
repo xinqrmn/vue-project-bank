@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import ProductsNav from "@/components/home/products/ProductsNav.vue";
-import ProductsList from "@/components/home/products/ProductsList.vue";
-
+import ProductsNav from '@/components/home/products/ProductsNav.vue';
+import ProductsList from '@/components/home/products/ProductsList.vue';
 </script>
 
 <template>
@@ -14,6 +13,5 @@ import ProductsList from "@/components/home/products/ProductsList.vue";
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
-
+@use '@/assets/styles/variables' as *;
 </style>

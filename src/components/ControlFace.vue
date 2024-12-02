@@ -1,23 +1,33 @@
 <script setup lang="ts">
 interface IControlProps {
-  booleanVariable: boolean
-  clickFunc: () => void
+  booleanVariable: boolean;
+  clickFunc: () => void;
 }
 
-const props = defineProps<IControlProps>()
+const props = defineProps<IControlProps>();
 </script>
 
 <template>
   <div class="control p-3">
-    <button :class="{active: props.booleanVariable}" @click="props.clickFunc" type="button">
-      For Individuals</button>
-    <button :class="{active: !props.booleanVariable}" @click="props.clickFunc" type="button">
-      For Businesses</button>
+    <button
+      :class="{ active: props.booleanVariable }"
+      @click="props.clickFunc"
+      type="button"
+    >
+      For Individuals
+    </button>
+    <button
+      :class="{ active: !props.booleanVariable }"
+      @click="props.clickFunc"
+      type="button"
+    >
+      For Businesses
+    </button>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .control {
   background-color: $color-grey-11;
@@ -27,7 +37,7 @@ const props = defineProps<IControlProps>()
   button {
     padding: 14px 24px;
     border-radius: 80px;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     color: $color-white;
     font-weight: 400;
 

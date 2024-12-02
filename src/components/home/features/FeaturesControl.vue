@@ -1,26 +1,24 @@
 <script setup lang="ts">
+import { useFeatures } from '@/store/modules/features';
 
-
-import {useFeatures} from "@/store/modules/features";
-
-const features = useFeatures()
+const features = useFeatures();
 </script>
 
 <template>
-<ul class="features-control w-1/5">
-  <li
-    v-for="feature in features.data"
-    :key="feature.key"
-    @click="features.toggleStatus(feature.status)"
-    :class="{active: features.status === feature.status}"
-  >
-    {{ feature.name }}
-  </li>
-</ul>
+  <ul class="features-control w-1/5">
+    <li
+      v-for="feature in features.data"
+      :key="feature.key"
+      @click="features.toggleStatus(feature.status)"
+      :class="{ active: features.status === feature.status }"
+    >
+      {{ feature.name }}
+    </li>
+  </ul>
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/variables";
+@use '@/assets/styles/variables' as *;
 
 .features-control {
   display: flex;
@@ -46,5 +44,4 @@ const features = useFeatures()
     }
   }
 }
-
 </style>

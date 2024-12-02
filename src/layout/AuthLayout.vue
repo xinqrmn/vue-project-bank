@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import TheNavbar from "@/components/TheNavbar.vue"
-import Footer from "@/components/Footer.vue"
-
+import TheNavbar from '@/components/TheNavbar.vue';
+import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
@@ -11,13 +10,11 @@ import Footer from "@/components/Footer.vue"
       <router-view></router-view>
     </div>
   </main>
-  <Footer/>
+  <Footer />
 </template>
 
 <style scoped lang="scss">
-
 .main {
   flex: 1 1 auto;
 }
-
 </style>

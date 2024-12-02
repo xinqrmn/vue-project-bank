@@ -1,16 +1,14 @@
 <script setup lang="ts">
+import { useAuth } from '@/store/modules/auth';
 
-import {useAuth} from "@/store/modules/auth";
-
-const auth = useAuth()
-
+const auth = useAuth();
 </script>
 
 <template>
   <div class="container">
     <nav class="flex items-center justify-between py-4 px-9 mb-12">
       <router-link to="/">
-        <img src="../assets/img/logo-desktop.svg" alt="Logo">
+        <img src="../assets/img/logo-desktop.svg" alt="Logo" />
       </router-link>
       <ul class="flex items-center justify-center gap-1">
         <li>
@@ -27,15 +25,25 @@ const auth = useAuth()
         </li>
       </ul>
       <div class="auth__links flex items-center justify-center gap-1">
-        <router-link to="/auth" @click="auth.setMode('register')" :class="auth.mode === 'register' ? 'primary' : ''">Sign Up</router-link>
-        <router-link to="/auth" @click="auth.setMode('login')" :class="auth.mode === 'login' ? 'primary' : ''">Login</router-link>
+        <router-link
+          to="/auth"
+          @click="auth.setMode('register')"
+          :class="auth.mode === 'register' ? 'primary' : ''"
+          >Sign Up</router-link
+        >
+        <router-link
+          to="/auth"
+          @click="auth.setMode('login')"
+          :class="auth.mode === 'login' ? 'primary' : ''"
+          >Login</router-link
+        >
       </div>
     </nav>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import '~@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 nav {
   background-color: $color-grey-11;
@@ -50,7 +58,7 @@ nav {
 
 nav ul li a {
   padding: 12px 25px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 nav ul li a.active,

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {IBenefitsProps} from "@/store/types/interfaces";
-import RoundedIcon from "@/components/RoundedIcon.vue";
+import { IBenefitsProps } from '@/store/types/interfaces';
+import RoundedIcon from '@/components/RoundedIcon.vue';
 
-const props = defineProps<IBenefitsProps>()
+const props = defineProps<IBenefitsProps>();
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const props = defineProps<IBenefitsProps>()
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables';
+@use '@/assets/styles/variables' as *;
 
 .benefits-item {
   width: 100%;
@@ -27,7 +27,11 @@ const props = defineProps<IBenefitsProps>()
   font-size: 24px;
   border: 1px solid $color-grey-15;
   background: $color-grey-11;
-  background: linear-gradient(140deg, rgba($color-green-60, 0.01) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(
+    140deg,
+    rgba($color-green-60, 0.01) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 
   &:nth-child(1) {
     border-radius: 50px 20px;
@@ -56,14 +60,17 @@ const props = defineProps<IBenefitsProps>()
 
 .benefits-icon {
   background: rgb(202, 255, 51);
-  background: linear-gradient(180deg, rgba(202, 255, 51, .05) 0%, rgba(202, 255, 51, 0) 90%);
+  background: linear-gradient(
+    180deg,
+    rgba(202, 255, 51, 0.05) 0%,
+    rgba(202, 255, 51, 0) 90%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   width: 100px;
   height: 100px;
-
 
   span {
     display: inline-flex;
@@ -75,7 +82,11 @@ const props = defineProps<IBenefitsProps>()
     height: 75px;
     color: $color-green-60;
     background: rgb(202, 255, 51);
-    background: linear-gradient(180deg, rgba(202, 255, 51, .1) 0%, rgba(202, 255, 51, 0) 80%);
+    background: linear-gradient(
+      180deg,
+      rgba(202, 255, 51, 0.1) 0%,
+      rgba(202, 255, 51, 0) 80%
+    );
   }
 }
 </style>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import {IReleaseProps} from "@/store/types/interfaces";
+import { IReleaseProps } from '@/store/types/interfaces';
 
-const props = defineProps<IReleaseProps>()
-
+const props = defineProps<IReleaseProps>();
 </script>
 
 <template>
   <div class="release-item">
-    <img :src="props.imagePath" alt="release image" class="mb-12">
+    <img :src="props.imagePath" alt="release image" class="mb-12" />
     <h5 class="release-title mb-5">{{ props.title }}</h5>
     <p class="flex gap-3 mb-7">
       <span class="release-bubble">Location: {{ props.location }}</span>
@@ -18,7 +17,7 @@ const props = defineProps<IReleaseProps>()
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/variables";
+@use '@/assets/styles/variables' as *;
 
 .release-bubble {
   padding: 8px 16px;
@@ -41,5 +40,4 @@ const props = defineProps<IReleaseProps>()
   font-size: 24px;
   color: $color-white;
 }
-
 </style>

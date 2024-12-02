@@ -1,39 +1,47 @@
 <script setup lang="ts">
-import CasesInfo from "@/components/home/cases/CasesInfo.vue"
-import CasesTiles from "@/components/home/cases/CasesTiles.vue"
-import {UserPlusIcon, ShieldCheckIcon, BuildingLibraryIcon, BookOpenIcon, BuildingOffice2Icon, BanknotesIcon, PresentationChartBarIcon, CurrencyDollarIcon} from '@heroicons/vue/24/solid'
-import {useCases} from "@/store/modules/cases"
+import CasesInfo from '@/components/home/cases/CasesInfo.vue';
+import CasesTiles from '@/components/home/cases/CasesTiles.vue';
+import {
+  UserPlusIcon,
+  ShieldCheckIcon,
+  BuildingLibraryIcon,
+  BookOpenIcon,
+  BuildingOffice2Icon,
+  BanknotesIcon,
+  PresentationChartBarIcon,
+  CurrencyDollarIcon,
+} from '@heroicons/vue/24/solid';
+import { useCases } from '@/store/modules/cases';
 
-const cases = useCases()
-
+const cases = useCases();
 </script>
 
 <template>
   <div class="cases-grid">
     <cases-tiles image-pos="top-left" :titles="cases.titles1">
-      <UserPlusIcon/>
+      <UserPlusIcon />
       <template v-slot:second-icon>
-        <ShieldCheckIcon/>
+        <ShieldCheckIcon />
       </template>
       <template v-slot:third-icon>
-        <BuildingLibraryIcon/>
+        <BuildingLibraryIcon />
       </template>
       <template v-slot:fourth-icon>
-        <BookOpenIcon/>
+        <BookOpenIcon />
       </template>
     </cases-tiles>
     <cases-info :caseInfo="cases.casesInfo1"></cases-info>
     <cases-info :caseInfo="cases.casesInfo2"></cases-info>
     <cases-tiles image-pos="top-right" :titles="cases.titles2">
-      <BuildingOffice2Icon/>
+      <BuildingOffice2Icon />
       <template v-slot:second-icon>
-        <BanknotesIcon/>
+        <BanknotesIcon />
       </template>
       <template v-slot:third-icon>
-        <PresentationChartBarIcon/>
+        <PresentationChartBarIcon />
       </template>
       <template v-slot:fourth-icon>
-        <CurrencyDollarIcon/>
+        <CurrencyDollarIcon />
       </template>
     </cases-tiles>
   </div>
