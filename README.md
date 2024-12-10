@@ -1,4 +1,4 @@
-# vue-project-bank
+# [vue-project-bank](https://guileless-entremet-1a3520.netlify.app/)
 
 Welcome to the Bank Management Application, a Vue.js project designed to manage transactions and currency conversions efficiently. This project showcases my skills in handling dynamic data and implementing CRUD operations.
 
@@ -12,10 +12,6 @@ Welcome to the Bank Management Application, a Vue.js project designed to manage 
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-
-## Demo
-
-Check out the live demo of the project [here](https://guileless-entremet-1a3520.netlify.app/).
 
 ## Features
 
