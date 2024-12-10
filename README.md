@@ -19,10 +19,9 @@ Check out the live demo of the project [here](https://guileless-entremet-1a3520.
 
 ## Features
 
-- **Transaction Management**: Add, edit, and delete transactions with ease.
+- **Transaction Management**: Add, edit transactions with ease.
 - **Currency Conversion**: Convert amounts between different currencies.
 - **Dynamic Data Handling**: Real-time updates and seamless data manipulation.
-- **Responsive Design**: Optimized for various screen sizes.
 - **User-Friendly Interface**: Intuitive and easy-to-navigate design.
 
 ## Technologies Used
