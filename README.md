@@ -27,9 +27,9 @@ Check out the live demo of the project [here](https://guileless-entremet-1a3520.
 
 ## Technologies Used
 
-- **Frontend**: Vue.js, Vue Router, Vuex
+- **Frontend**: Vue.js, Vue Router, Pinia
 - **Styling**: Tailwind CSS
-- **State Management**: Vuex
+- **State Management**: Pinia
 - **Version Control**: Git
 - **Deployment**: Netlify
 
@@ -64,5 +64,5 @@ To run this project locally, follow these steps:
 5. Open your browser and visit:
 
 ```bash
-  [npm run serve](http://localhost:8080)
+  localhost:8080
 ```
