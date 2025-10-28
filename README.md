@@ -1,63 +1,34 @@
-# [vue-project-bank](https://guileless-entremet-1a3520.netlify.app/)
+# 💳 Vue Project Bank
 
-Welcome to the Bank Management Application, a Vue.js project designed to manage transactions and currency conversions efficiently. This project showcases my skills in handling dynamic data and implementing CRUD operations.
+A **banking interface** for managing transactions and currency conversions.  
+Demonstrates CRUD operations, reusable components, and dynamic data handling.
 
-## Table of Contents
+---
 
-- [Demo](#demo)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## 🚀 Overview
 
-## Features
+The app provides transaction management, currency conversion, and analytics visualization.  
+Built with Vue 3, Pinia, and TypeScript for a clean, maintainable architecture.
 
-- **Transaction Management**: Add, edit transactions with ease.
-- **Currency Conversion**: Convert amounts between different currencies.
-- **Dynamic Data Handling**: Real-time updates and seamless data manipulation.
-- **User-Friendly Interface**: Intuitive and easy-to-navigate design.
+---
 
-## Technologies Used
+## 🛠 Tech Stack
 
-- **Frontend**: Vue.js, Vue Router, Pinia
-- **Styling**: Tailwind CSS
-- **State Management**: Pinia
-- **Version Control**: Git
-- **Deployment**: Netlify
+- **Frontend:** Vue 3, Pinia, TypeScript, Vite  
+- **UI:** TailwindCSS  
+- **Tools:** Axios, ESLint, Prettier
 
-## Setup
+---
 
-To run this project locally, follow these steps:
+## ⚙️ Features
 
-1. **Clone the repository**:
+- ✅ CRUD operations for transactions  
+- ⚡ Currency conversion module  
+- 📊 Analytics dashboard  
+- 🌙 Clean and minimal UI
 
-```bash
-  git clone https://github.com/xinqrmn/vue-project-bank.git
-```
+---
 
-2. Navigate to the project directory:
+## 🔗 Links
 
-```bash
-  cd vue-project-bank
-```
-
-3. Install dependencies:
-
-```bash
-  npm install
-```
-
-4. Run the development server:
-
-```bash
-  npm run serve
-```
-
-5. Open your browser and visit:
-
-```bash
-  localhost:8080
-```
+- **Repository:** [Vue Project Bank on GitHub](https://github.com/xinqrmn/vue-project-bank)
